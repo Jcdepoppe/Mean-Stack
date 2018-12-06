@@ -1,0 +1,27 @@
+function coinChange(num){
+    var change = {dollars: 0, quarters: 0, dimes: 0, nickles: 0, pennies: 0}
+    while(num != 0){
+        if(num >= 100){
+            num -= 100;
+            change.dollars++;
+        }
+        else if(num >= 25){
+            num -= 25
+            change.quarters++;
+        }
+        else if(num >= 10){
+            num -= 10;
+            change.dimes++;
+        }
+        else if(num >= 5){
+            num -= 5
+            change.nickles++;
+        }
+        else if(num >= 1){
+            num -= 1
+            change.pennies++;
+        }
+
+    }
+    return change;
+}

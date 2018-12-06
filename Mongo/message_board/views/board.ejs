@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Message Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">The Dojo Message Board</span>
+    </nav>
+
+    <div class="card">
+        <div class="card-header">
+            <% if(messages.error) { %>
+            <% for (var x of messages.error) { %>
+            <p style="color: red;">
+                <%= x %>
+            </p>
+            <% } %>
+            <% } %>
+            <form action="/message" method="post">
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" name="user">
+                </div>
+                <div class="form-group">
+                    <label>Add Message:</label>
+                    <textarea class="form-control" rows="3" name="content"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Post Message</button>
+            </form>
+        </div>
+        <div class="card-body">
+            <!-- <%= data %> -->
+            <% for (var message of data) { %>
+                <h5 class="card-title">
+                    <%= message.user %>
+                </h5>
+                <p class="card-text">
+                    <%= message.content %>
+                </p>
+                <div style="margin-left: 30px;">
+                    <% for (var i of message.comments) { %>
+                        <h5 class="card-title">
+                            <%= i.user %>
+                        </h5>
+                        <p class="card-text">
+                            <%= i.content %>
+                        </p>
+                        <% } %>
+                    <% if(messages.Cerror) { %>
+                        <% for (var y of messages.Cerror) { %>
+                        <p style="color: red">
+                            <%= y %>
+                        </p>
+                        <% } %>
+                    <% } %>
+                    <form action="/message/<%= message._id%>" method="post">
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input type="text" class="form-control" name="user">
+                        </div>
+                        <div class="form-group">
+                            <label>Add Comment:</label>
+                            <textarea class="form-control" rows="3" name="content"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

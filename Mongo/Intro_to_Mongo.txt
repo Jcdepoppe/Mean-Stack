@@ -1,0 +1,54 @@
+Commands I used:
+
+1)  use my_first_db
+
+2) db.createCollection('students')
+
+4) db.students.insert({name: "Jackson", home_state: "Washington",
+ lucky_number: 9, birthday: {month: 02, day: 14, year: 1998}})
+//Note: Added an additional 4 other students
+
+5) db.students.find().pretty()
+
+6) db.students.find( { $or: [ { home_state: "Washington" },
+ {home_state: "California"} ] } ).pretty()
+
+7) db.students.find({lucky_number: {$gt: 3}}).pretty()
+
+db.students.find({lucky_number: {$lte: 10}}).pretty()
+
+db.students.find({ $and: [ {lucky_number: {$lte: 9}}, 
+{lucky_number: {$gte: 1}} ] } ).pretty()
+
+8) db.students.update({}, {$set: {interests: 
+['coding', 'brunch', 'MongoDB'] }}, {multi: true})
+
+9) db.students.update({name: 'Jackson'}, 
+{$push: {interests: 'video games'}})
+
+10) db.students.update({name: 'Chris'},
+ {$push: {interests: 'Taxes'}})
+
+11) db.students.update({name: 'Chris'}, 
+{$pop: {interests: (1)}})
+
+12) db.students.remove({home_state: 'California'})
+
+13) db.students.remove({name: 'Author'})
+
+14) db.students.remove({lucky_number: {$gt: 5}}, 
+{justOne: true})
+
+15) db.students.update({}, {$set: {number_of_belts: 0}}, 
+{multi: true})
+
+16)  db.students.updateMany({home_state: "Washington"}, 
+{$inc: { number_of_belts: 1 }})
+
+17) db.students.updateMany({}, 
+{ $rename: {"number_of_belts": "belts_earned"} })
+
+18) db.students.updateMany({}, { $unset: {lucky_number: ""}})
+
+19) db.students.updateMany({}, 
+{$currentDate: { "updated_on": { $type: "date" } } } )

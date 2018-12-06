@@ -1,0 +1,9 @@
+.container{
+    padding: 10px;
+}
+.card{
+    display: inline-block;
+    width: 30%;
+    height: 500px;
+    vertical-align: top;
+}

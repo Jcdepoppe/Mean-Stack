@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hundred Acre Woods Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script  src="hundredAcreWood.js"></script>
+</head>
+<body>
+    <h1>Hi</h1>
+    <script>
+        var mission = mission();
+
+        function move(str){
+            
+            if(str == "north"){
+                if(player.location.north == null){
+                    console.log("You cannot go this way!");
+                    return;
+                }
+                else{
+                    player.location = player.location.north;
+                }
+            }
+            else if(str == "south"){
+                if(player.location.south == null){
+                    console.log("You cannot go this way!");
+                    return;
+                }
+                else{
+                    player.location = player.location.south;
+                }
+            }
+            else if(str == "east"){
+                if(player.location.east == null){
+                    console.log("You cannot go this way!");
+                    return;
+                }
+                else{
+                    player.location = player.location.east;
+                }
+            }
+            else if(str == "west"){
+                if(player.location.west == null){
+                    console.log("You cannot go this way!");
+                    return;
+                }
+                else{
+                    player.location = player.location.west;
+                }
+            }            
+            console.log("You are now at " + player.location.character + "'s house.");
+            player.location.greet();
+        }    
+    </script>
+</body>
+</html>

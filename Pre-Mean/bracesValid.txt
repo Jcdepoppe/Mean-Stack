@@ -1,0 +1,41 @@
+function validBraces(str){
+
+    var arr = ['(', '[', '{'];
+    var stack = []; //Treating this arr like a stack
+
+    for(var i = 0; i < str.length - 1; i++){
+        console.log(stack);
+        if(str[i] == '(' || str[i] == '[' || str[i] == '{'){
+            stack.push(str[i]);
+        }
+        else if(str[i] == ')'){
+            var temp = stack.pop();
+            if(temp == '('){
+                continue;
+            }
+            else{
+                return false;
+            }
+        }
+        else if(str[i] == ']'){
+            var temp = stack.pop();
+            if(temp == '['){
+                continue;
+            }
+            else{
+                return false;
+            }
+        }
+        else if(str[i] == '}'){
+            var temp = stack.pop();
+            if(temp == '{'){
+                continue;
+            }
+            else{
+                return false;
+            }
+        }
+       
+    }
+    return true;
+}

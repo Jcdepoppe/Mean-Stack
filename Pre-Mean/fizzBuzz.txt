@@ -1,0 +1,61 @@
+function fizzBuzz(n){
+    if(n < 0 || isNaN(n)){
+        console.log("Parameter must be a positive number")
+        return null;
+    }
+    for(i = 1; i <= n; i++){
+        if(i % 15 == 0){
+            console.log("FizzBuzz");
+        }
+        else if(i % 5 == 0){
+            console.log("Buzz");
+        }
+        else if(i % 3 == 0){
+            console.log("Fizz");
+        }
+        else{
+            console.log(i);
+        }
+    }
+}
+
+BONUS 2
+
+function fizzBuzz(n) {
+    var str = "";
+    if (n < 0 || isNaN(n)) {
+        str += "Parameter must be a positive number";
+        return str
+    }
+    for (i = 1; i <= n; i++) {
+        if (i == n) {
+            if (i % 15 == 0) {
+                str += "and FizzBuzz.";
+            }
+            else if (i % 5 == 0) {
+                str += "and Buzz";
+            }
+            else if (i % 3 == 0) {
+                str += "and Fizz";
+            }
+            else {
+                str += "and " + i;
+            }
+        }
+        else {
+            if (i % 15 == 0) {
+                str += "FizzBuzz, ";
+            }
+            else if (i % 5 == 0) {
+                str += "Buzz, ";
+            }
+            else if (i % 3 == 0) {
+                str += "Fizz, ";
+            }
+            else {
+                str += i + ", ";
+            }
+        }
+    }
+    return str;
+}

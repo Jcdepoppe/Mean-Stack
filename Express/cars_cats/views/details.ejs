@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Detail Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+    <img src="/images/<%= cat.img%>" alt="">
+    <h3>Name:
+        <%= cat.name %>
+    </h3>
+    <h5>Age:
+        <%= cat.age %>
+    </h5>
+    <table>
+        <tr>
+            <th>This cat enjoys:</th>
+        </tr>
+        <% for (var likes in cat.likes) { %>
+        <tr>
+
+            <td>
+                <%= cat.likes[likes] %>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+</body>
+
+</html>

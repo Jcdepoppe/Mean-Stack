@@ -1,0 +1,18 @@
+function bubbleSort(arr){
+    for(var k = 0; k < arr.length; k++){
+        var count = 0; // Count will see if any changes were made, if not then the array must already be sorted
+        for(var i = 0; i < arr.length - 1; i++){
+            if(arr[i] > arr[i + 1]){
+                var temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                count++;
+            }
+        }
+        console.log(count);
+        if(count == 0){
+            break;
+        }
+    }
+    console.log(arr);
+}

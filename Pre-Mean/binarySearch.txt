@@ -1,0 +1,19 @@
+function binarySearch(arr, num){
+    console.log(arr);
+    for(var i = 0; i < arr.length / 2; i++){
+        continue;
+    }
+    if(arr[i] == num){
+        return i;
+    }
+    if(arr.length == 1){
+        return -1;
+    }
+    if(arr[i] > num){
+        arr.splice(i, arr.length / 2);
+    }
+    else{
+        arr.splice(0, arr.length / 2);
+    }
+    return binarySearch(arr, num);
+}

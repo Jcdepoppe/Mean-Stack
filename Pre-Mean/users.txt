@@ -1,0 +1,26 @@
+function userLanguages(users){
+    for(var i = 0; i < users.length; i++){
+        var str = "";
+        var str2 = "";
+        str += users[i].fname + " ";
+        str += users[i].lname + " knows";
+        for (var k = 0; k < users[i].languages.length; k++){
+            if(k + 1 == users[i].languages.length){
+                str += " and"
+            }
+            str += " " + users[i].languages[k];
+            
+        }
+        str += ".";
+        str2 += users[i].fname + " is also interested in ";
+
+        for(var category in users[i].interests){
+            for(var j = 0; j < users[i].interests[category].length; j++){
+                str2 += users[i].interests[category][j] + ", ";
+            }
+        }
+        console.log(str);
+        console.log(str2);
+    }
+
+}

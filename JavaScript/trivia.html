@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ultimate Trivia!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="trivia.css" />
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="trivia.js"></script>
+</head>
+
+<body>
+    <div class='container'>
+        <div>
+            <h1>Trivia Time!</h1>
+            <button id='api'>Generate Questions!</button>
+            <h3 id="response"></h3>
+        </div>
+        <div class='card'>
+            <div class="card-header">
+                <h3 id='h1'>Category Title</h3>
+            </div>
+            <div class='card-body'>
+                <div class="question">
+                    <h5 id='q-1'></h5>
+                    <input id='a1' type="radio" name="test" value="correct"> <label class='c-1'></label><br>
+                    <input id="a1" type="radio" name="test" value="incorrect"> <label class='i-1-0'></label><br>
+                    <input id="a1" type="radio" name="test" value="incorrect"> <label class='i-1-1'></label><br>
+                    <input id="a1" type="radio" name="test" value="incorrect"> <label class='i-1-2'></label><br>
+                    <button class='submit1'>Submit answer</button>
+                </div>
+            </div>
+        </div>
+        <div class='card'>
+            <div class="card-header">
+                <h3 id='h2'>Category Title</h3>
+            </div>
+            <div class='card-body'>
+                <div class="question">
+                    <h5 id='q-2'></h5>
+                    <input id="a2" type="radio" name="test" value="incorrect"> <label class='i-2-0'></label><br>
+                    <input id="a3" type="radio" name="test" value="incorrect"> <label class='i-2-1'></label><br>
+                    <input id='a1' type="radio" name="test" value="correct"> <label class='c-2'></label><br>
+                    <input id="a4" type="radio" name="test" value="incorrect"> <label class='i-2-2'></label><br>
+                    <button class='submit2'>Submit answer</button>
+                </div>
+            </div>
+        </div>
+        <div class='card'>
+            <div class="card-header">
+                <h3 id='h3'>Category Title</h3>
+            </div>
+            <div class='card-body'>
+                <div class="question">
+                    <h5 id='q-3'></h5>
+                    <input id="a2" type="radio" name="test" value="incorrect"> <label class='i-3-0'></label><br>
+                    <input id="a3" type="radio" name="test" value="incorrect"> <label class='i-3-1'></label><br>
+                    <input id="a4" type="radio" name="test" value="incorrect"> <label class='i-3-2'></label><br>
+                    <input id='a1' type="radio" name="test" value="correct"> <label class='c-3'></label><br>
+                    <button class='submit3'>Submit answer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

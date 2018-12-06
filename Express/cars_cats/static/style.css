@@ -1,0 +1,7 @@
+img{
+    width: 300px;
+    display: inline-block;
+    border: 3px black solid;
+    margin: 1px;
+    vertical-align: top;
+}
