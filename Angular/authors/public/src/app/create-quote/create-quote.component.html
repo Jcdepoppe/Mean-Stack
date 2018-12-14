@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn btn-link" [routerLink]="['/home']">Home</button>
+      <h5 *ngIf="author">Provide a quote by {{author.name}}</h5>
+      <div class="form">
+        <form (submit)="create()">
+          <p>Name:</p>
+          <input
+            type="text"
+            name="content"
+            required
+            minlength="3"
+            [(ngModel)]="newQuote.content"
+            #content="ngModel"
+          />
+          <br />
+          <button class="btn btn-primary" [routerLink]="['/home']">
+            Cancel
+          </button>
+          <input class="btn btn-primary" type="submit" value="Submit"/>
+        </form>
+        <div *ngIf="content.errors">
+          <span style="color: red" *ngIf="content.errors['required']">Please enter the quote</span>
+          <span style="color: red" *ngIf="content.errors['minlength']">The quote must be at least 3 characters long!</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

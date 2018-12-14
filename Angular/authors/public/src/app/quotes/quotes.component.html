@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <button class="btn btn-link" [routerLink]="['/home']">Home</button>
+    <span> | </span>
+    <button *ngIf="author" class="btn btn-link" [routerLink]="['/quotes', author._id, 'create']">
+      Add a quote
+    </button>
+    <h5 *ngIf="author">Quotes by {{ author.name }}</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Quote</th>
+          <th scope="col">Votes</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="quotes">
+        <tr *ngFor="let quote of quotes">
+          <td scope="row">"{{ voting[quote._id].content }}"</td>
+          <td>{{ voting[quote._id].votes }}</td>
+          <td>
+            <button class="btn btn-success" (click)="vote(quote._id, 1)">Vote Up</button>
+            <button class="btn btn-warning" (click)="vote(quote._id, -1)">Vote Down</button>
+            <button class="btn btn-danger" (click)="delete(quote._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

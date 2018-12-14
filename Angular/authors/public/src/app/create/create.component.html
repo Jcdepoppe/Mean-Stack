@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn btn-link" [routerLink]="['/home']">Home</button>
+      <h5>Add a author:</h5>
+      <div *ngIf="errors">{{ errors | json }}</div>
+      <div class="form">
+        <form (submit)="create()">
+          <p>Name:</p>
+          <input
+            type="text"
+            name="name"
+            required
+            minlength="3"
+            [(ngModel)]="newAuthor.name"
+            #name="ngModel"
+          />
+          <br />
+          <button class="btn btn-primary" [routerLink]="['/home']">
+            Cancel
+          </button>
+          <input class="btn btn-primary" type="submit" value="Submit" *ngIf="! name.errors"/>
+        </form>
+        <div *ngIf="name.errors">
+          <span style="color: red" *ngIf="name.errors['required']">Please enter the authors name</span>
+          <span style="color: red" *ngIf="name.errors['minlength']">The authors name must be at least three characters!</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
